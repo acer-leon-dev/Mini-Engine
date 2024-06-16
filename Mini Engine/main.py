@@ -808,7 +808,7 @@ INPUT_BULLET_MODEL: ImageFilePath = r"Models/default_bullet.png"
 INPUT_BULLET_BASE_ANGLE: angleDeg = 270
 INPUT_BULLET_WIDTH: pixels = 25
 INPUT_BULLET_HEIGHT: pixels = 50
-INPUT_BULLET_SPEED: pixelspersecond = 0
+INPUT_BULLET_SPEED: pixelspersecond = 1000
 INPUT_BULLET_SHOT_ANGLE: angleDeg = 90
 
 BLOCK_COLOR = (255, 0, 0)
