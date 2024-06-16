@@ -56,8 +56,9 @@ def limit_degrees(degrees):
         degrees += 360
     return degrees
 
-def exceeds_window(object: Object) -> bool:
-    pass
+def exceeds_window_bounds(object: Object) -> bool:
+    return not (-(object.width + 10) < object.x < WINDOW_WIDTH + (object.width + 10) and
+                -(object.height + 10) < object.y < WINDOW_HEIGHT + (object.height + 10))
 
 def when_player_hit(player: BasePlayer):
     player.x = WINDOW_WIDTH/2
@@ -76,8 +77,7 @@ def draw_stored_bullets(screen: pygame.display, bullet_store: list[Bullet]):
     for bullet in bullet_store:
         bullet.draw(screen)
         # Check if bullet exceeeds bounds of window.
-        if not (-(bullet.width + 10) < bullet.x < WINDOW_WIDTH + (bullet.width + 10) and
-                -(bullet.height + 10) < bullet.y < WINDOW_HEIGHT + (bullet.height + 10)):
+        if exceeds_window_bounds(bullet):
             bullet_store.remove(bullet)
 
 def create_brick(model: ImageFilePath, width: pixels, height: pixels,
